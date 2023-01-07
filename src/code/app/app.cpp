@@ -1,22 +1,43 @@
 #include "app.hpp"
 
-void app::init()
+bool app::init(int argc, char* argv[])
 {
-    cout << "Initialisation du programme" << endl;
+    try
+    {
+        PLOGI << "Initialisation du programme";
+        init_logs(argc >1 ? string(argv[1]): string(""));
+        return true;
+    }
+    catch(const std::exception& e)
+    {
+        PLOGF << "Erreur à l'initialisation:" << e.what();
+        return false;
+    }
+    
+    
 }
 
 void app::run()
 {
-    cout << "Lancement du programme" << endl;
+    PLOGI << "Lancement du programme";
+    try
+    {
+        throw logic_error("Application non développée");
+    }
+    catch(const exception& e)
+    {
+        PLOGF << "Erreur d'exécution le programme va fermer: " << e.what();
+    }
+    
     this->exit();
 }
 
 void app::clean()
 {
-    cout << "Clean du programme" << endl;
+    PLOGD << "Clean du programme";
 }
 
 void app::exit()
 {
-    cout << "Sortie  du programme" << endl;
+    PLOGW << "Sortie  du programme";
 }

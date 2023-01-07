@@ -1,14 +1,15 @@
 #pragma once
 #include "common.hpp"
+#include "log.hpp"
 
 class app
 {
     public:
-        app(){this->init();}
+        app(){}
         ~app(){this->clean();}
+        bool init(int argc, char* argv[]);
         void run();
     private:
-        void init();
         void clean();
         void exit();
 };

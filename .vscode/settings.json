@@ -1,24 +1,11 @@
 {
-    "makefile.configurations": [
-        {
-            "name": "Default",
-            "makeArgs": []
-        },
-        {
-            "name": "Print make version",
-            "makeArgs": ["--version"]
-        }
-    ],
     "makefile.launchConfigurations": [
-        {
-            "cwd": "/home/mathias/Documents/dev/cpp/cpp_template",
-            "binaryPath": "/home/mathias/Documents/dev/cpp/cpp_template/prog",
-            "binaryArgs": []
-        },
         {
             "cwd": "/home/mathias/Documents/dev/cpp/cpp_template/build/debug",
             "binaryPath": "/home/mathias/Documents/dev/cpp/cpp_template/build/debug/app",
-            "binaryArgs": []
+            "binaryArgs": [
+                "debug"
+            ]
         },
         {
             "cwd": "/home/mathias/Documents/dev/cpp/cpp_template/build/release",
@@ -26,4 +13,4 @@
             "binaryArgs": []
         }
     ]
-   }
+}
