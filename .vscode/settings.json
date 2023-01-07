@@ -11,6 +11,11 @@
             "cwd": "/home/mathias/Documents/dev/cpp/cpp_template/build/release",
             "binaryPath": "/home/mathias/Documents/dev/cpp/cpp_template/build/release/app",
             "binaryArgs": []
+        },
+        {
+            "cwd": "/home/mathias/Documents/dev/cpp/cpp_template/build/test",
+            "binaryPath": "/home/mathias/Documents/dev/cpp/cpp_template/build/test/app",
+            "binaryArgs": []
         }
     ]
 }
