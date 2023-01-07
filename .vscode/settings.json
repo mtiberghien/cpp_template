@@ -1,0 +1,34 @@
+{
+    "makefile.configurations": [
+        {
+            "name": "Default",
+            "makeArgs": []
+        },
+        {
+            "name": "Print make version",
+            "makeArgs": ["--version"]
+        }
+    ],
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/mathias/Documents/dev/cpp/test_make/build",
+            "binaryPath": "/home/mathias/Documents/dev/cpp/test_make/build/app",
+            "binaryArgs": []
+        },
+        {
+            "cwd": "/home/mathias/Documents/dev/cpp/test_make",
+            "binaryPath": "/home/mathias/Documents/dev/cpp/test_make/.o",
+            "binaryArgs": []
+        },
+        {
+            "cwd": "/home/mathias/Documents/dev/cpp/test_make/build/debug",
+            "binaryPath": "/home/mathias/Documents/dev/cpp/test_make/build/debug/app",
+            "binaryArgs": []
+        },
+        {
+            "cwd": "/home/mathias/Documents/dev/cpp/test_make/build/release",
+            "binaryPath": "/home/mathias/Documents/dev/cpp/test_make/build/release/app",
+            "binaryArgs": []
+        }
+    ]
+   }
