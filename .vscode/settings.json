@@ -11,23 +11,18 @@
     ],
     "makefile.launchConfigurations": [
         {
-            "cwd": "/home/mathias/Documents/dev/cpp/test_make/build",
-            "binaryPath": "/home/mathias/Documents/dev/cpp/test_make/build/app",
+            "cwd": "/home/mathias/Documents/dev/cpp/cpp_template",
+            "binaryPath": "/home/mathias/Documents/dev/cpp/cpp_template/prog",
             "binaryArgs": []
         },
         {
-            "cwd": "/home/mathias/Documents/dev/cpp/test_make",
-            "binaryPath": "/home/mathias/Documents/dev/cpp/test_make/.o",
+            "cwd": "/home/mathias/Documents/dev/cpp/cpp_template/build/debug",
+            "binaryPath": "/home/mathias/Documents/dev/cpp/cpp_template/build/debug/app",
             "binaryArgs": []
         },
         {
-            "cwd": "/home/mathias/Documents/dev/cpp/test_make/build/debug",
-            "binaryPath": "/home/mathias/Documents/dev/cpp/test_make/build/debug/app",
-            "binaryArgs": []
-        },
-        {
-            "cwd": "/home/mathias/Documents/dev/cpp/test_make/build/release",
-            "binaryPath": "/home/mathias/Documents/dev/cpp/test_make/build/release/app",
+            "cwd": "/home/mathias/Documents/dev/cpp/cpp_template/build/release",
+            "binaryPath": "/home/mathias/Documents/dev/cpp/cpp_template/build/release/app",
             "binaryArgs": []
         }
     ]
