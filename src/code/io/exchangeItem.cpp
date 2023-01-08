@@ -1,11 +1,11 @@
 #include "exchangeItem.hpp"
 
-ExchangeItem::ExchangeItem(vector<string> properties)
+ExchangeItem::ExchangeItem(const vector<string>& properties)
 {
     this->setProperties(properties);
 }
 
-void ExchangeItem::setProperties(vector<string> properties)
+void ExchangeItem::setProperties(const vector<string>& properties)
 {
     this->properties.clear();
     map<string,string> temp = this->data;
@@ -23,6 +23,16 @@ void ExchangeItem::setProperties(vector<string> properties)
         }
         
     }
+}
+
+vector<string> ExchangeItem::getValues()
+{
+    vector<string> result;
+    for(string p: this->properties)
+    {
+        result.push_back(this->data[p]);
+    }
+    return result;
 }
 
 string& ExchangeItem::operator[](string key)

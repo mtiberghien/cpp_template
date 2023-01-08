@@ -50,7 +50,8 @@ INCLUDE		:= -I./$(INCLUDE_DIR)
 INCLUDE	+= $(foreach module, $(MODULES), -I./$(INCLUDE_DIR)/$(module))
 
 # Contient les dossiers à inclure
-TEST_INCLUDE := -I./$(TEST_INCLUDE_DIR)
+TEST_INCLUDE 	:= -I./$(TEST_INCLUDE_DIR)
+TEST_INCLUDE	+= $(foreach module, $(MODULES), -I./$(TEST_INCLUDE_DIR)/$(module))
 
 # Identifier tpous les fichiers .$(EXT)
 SRC	:= $(wildcard $(SOURCE_DIR)/*.$(EXT))

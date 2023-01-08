@@ -7,8 +7,9 @@ class ExchangeItem
 {
     public:
         ExchangeItem(){};
-        ExchangeItem(vector<string> properties);
-        void setProperties(vector<string> properties);
+        ExchangeItem(const vector<string>& properties);
+        void setProperties(const vector<string>& properties);
+        vector<string> getValues();
         string& operator[](string key);
     private:
         map<string,string> data;

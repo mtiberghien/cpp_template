@@ -6,7 +6,7 @@
 class Serializable
 {
     public:
-        virtual vector<string> getProperties()=0;
-        virtual ExchangeItem to_exchangeItem()=0;
-        virtual void from_exchangeItem(ExchangeItem& item)=0;
+        virtual vector<string> getProperties() const = 0;
+        virtual ExchangeItem to_exchangeItem() const = 0;
+        virtual void from_exchangeItem(ExchangeItem& item) = 0;
 };
