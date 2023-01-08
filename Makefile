@@ -9,7 +9,7 @@ EXEC		:= app
 # Options de compilations
 CFLAGS		:= -Wall
 # Options de compilation pour le Debug
-DEFUG_CFLAGS := 
+DEBUG_CFLAGS := -g
 # Permet d'inclure des librairie au linker ex -lsqlite3
 LINK_LIB	:=
 # Permet d'inclure des librairie au linker pour les tests ex -lsqlite3
@@ -71,9 +71,6 @@ OBJ_DEBUG_TEST :=$(addprefix $(OBJ_DIR)/$(DEBUG_DIR)/,$(SRC_MODULES:$(SOURCE_DIR
 OBJ_RELEASE :=$(addprefix $(OBJ_DIR)/$(RELEASE_DIR)/,$(SRC:$(SOURCE_DIR)/%.$(EXT)=%.o))
 OBJ_TEST := $(addprefix $(OBJ_DIR)/$(TEST_DIR)/,$(TEST_SRC:$(TEST_SRC_DIR)/%.$(EXT)=%.o))
 
-print:
-	@echo $(OBJ_TEST)
-
 
 # Affiche le nom de la source qui doit être compilée
 %.$(EXT):
@@ -113,7 +110,7 @@ $(BUILD_TEST_DIR):
 
 # Compile l'application release mais également les sources si nécessaire
 $(BUILD_TEST_DIR)/$(EXEC): $(OBJ_DEBUG_TEST) $(OBJ_TEST)
-	$(CC) $(INCLUDE) $(DEBUG_CONFIG_INCLUDE) $(TEST_INCLUDE) -o $@ $(OBJ_DEBUG_TEST) $(OBJ_TEST) $(CFLAGS) $(DEFUG_CFLAGS) $(LINK_LIB) $(TEST_LINK_LIB)
+	$(CC) $(INCLUDE) $(DEBUG_CONFIG_INCLUDE) $(TEST_INCLUDE) -o $@ $(OBJ_DEBUG_TEST) $(OBJ_TEST) $(CFLAGS) $(DEBUG_CFLAGS) $(LINK_LIB) $(TEST_LINK_LIB)
 
 # Compile les fichiers sources en mode debug
 $(OBJ_DIR)/$(DEBUG_DIR)/%.o: $(SOURCE_DIR)/%.$(EXT)
@@ -125,10 +122,10 @@ $(OBJ_DIR)/$(RELEASE_DIR)/%.o: $(SOURCE_DIR)/%.$(EXT)
 
 # Compile les fichiers sources de tests
 $(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_SRC_DIR)/%.$(EXT)
-	$(CC) $(INCLUDE) $(DEBUG_CONFIG_INCLUDE) $(TEST_INCLUDE) -o $@ -c $< $(CFLAGS) $(DEFUG_CFLAGS) $(LINK_LIB) $(TEST_LINK_LIB)
+	$(CC) $(INCLUDE) $(DEBUG_CONFIG_INCLUDE) $(TEST_INCLUDE) -o $@ -c $< $(CFLAGS) $(DEBUG_CFLAGS) $(LINK_LIB) $(TEST_LINK_LIB)
 
 # Lance la compilation en mode debug en changeant les flags de compilation
-debug: CFLAGS := $(CFLAGS) $(DEFUG_CFLAGS)
+debug: CFLAGS := $(CFLAGS) $(DEBUG_CFLAGS)
 
 # Les dossiers obj/debugs et build/debug sont créés, puis l'exécutable
 debug: $(OBJ_DEBUG_DIR) $(BUILD_DEBUG_DIR) $(BUILD_DEBUG_DIR)/$(EXEC)
