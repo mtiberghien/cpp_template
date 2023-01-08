@@ -168,6 +168,7 @@ Quelques petits conseils pour le projeet final (synthèse des problèmes remont�
     - Pas besoin de faire 50 commits par jour, un en fin de matinée et un en fin de journée suffisent
     - Avant de faire un commit (et surtout un push), lancez un build de test et faites le tourner: il ne faut jamais pousser du code non fonctionnel et les seules erreurs de tests acceptées doivent être des fonctions non implémentées
 - Passez du temps sur l'architecture de votre projet, et la création de tests: le temps perdu au démarrage sera largement compensé en deuxième semaine.
+- Ne commentez que les déclarations pas les implémentations: les déclarations commentées sont documentée par l'Intellisense
 
 
 Je vous souhaite à tous bonne chance pour le projet, n'oubliez pas que le voyage est souvent plus important que la destination.
