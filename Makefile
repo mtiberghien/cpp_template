@@ -44,6 +44,10 @@ BUILD_DEBUG_DIR	:= $(BUILD_DIR)/$(DEBUG_DIR)
 BUILD_RELEASE_DIR := $(BUILD_DIR)/$(RELEASE_DIR)
 # Dossier build/test
 BUILD_TEST_DIR	:= $(BUILD_DIR)/$(TEST_DIR)
+# Include config/debug
+DEBUG_CONFIG_INCLUDE := -I./config/debug
+# Include config/release
+RELEASE_CONFIG_INCLUDE := -I./config/release
 
 # Contient les dossier à inclure avec -I dans les commandes de compilation afin de simplifier l'écriture du code
 INCLUDE		:= -I./$(INCLUDE_DIR)
@@ -93,7 +97,7 @@ $(BUILD_DEBUG_DIR):
 
 # Compile l'application debug mais également les sources si nécessaire
 $(BUILD_DEBUG_DIR)/$(EXEC): $(OBJ_DEBUG)
-	$(CC) $(INCLUDE) -o $@ $(OBJ_DEBUG) $(CFLAGS) $(LINK_LIB)
+	$(CC) $(INCLUDE) $(DEBUG_CONFIG_INCLUDE) -o $@ $(OBJ_DEBUG) $(CFLAGS) $(LINK_LIB)
 
 # Crée le dossier build/release
 $(BUILD_RELEASE_DIR):
@@ -101,7 +105,7 @@ $(BUILD_RELEASE_DIR):
 
 # Compile l'application release mais également les sources si nécessaire
 $(BUILD_RELEASE_DIR)/$(EXEC): $(OBJ_RELEASE)
-	$(CC) $(INCLUDE) -o $@ $(OBJ_RELEASE) $(CFLAGS) $(LINK_LIB)
+	$(CC) $(INCLUDE) $(RELEASE_CONFIG_INCLUDE) -o $@ $(OBJ_RELEASE) $(CFLAGS) $(LINK_LIB)
 
 # Crée le dossier build/test
 $(BUILD_TEST_DIR):
@@ -109,19 +113,19 @@ $(BUILD_TEST_DIR):
 
 # Compile l'application release mais également les sources si nécessaire
 $(BUILD_TEST_DIR)/$(EXEC): $(OBJ_DEBUG_TEST) $(OBJ_TEST)
-	$(CC) $(INCLUDE) $(TEST_INCLUDE) -o $@ $(OBJ_DEBUG_TEST) $(OBJ_TEST) $(CFLAGS) $(DEFUG_CFLAGS) $(LINK_LIB) $(TEST_LINK_LIB)
+	$(CC) $(INCLUDE) $(DEBUG_CONFIG_INCLUDE) $(TEST_INCLUDE) -o $@ $(OBJ_DEBUG_TEST) $(OBJ_TEST) $(CFLAGS) $(DEFUG_CFLAGS) $(LINK_LIB) $(TEST_LINK_LIB)
 
 # Compile les fichiers sources en mode debug
 $(OBJ_DIR)/$(DEBUG_DIR)/%.o: $(SOURCE_DIR)/%.$(EXT)
-	$(CC) $(INCLUDE) -o $@ -c $< $(CFLAGS) $(LINK_LIB)
+	$(CC) $(INCLUDE) $(DEBUG_CONFIG_INCLUDE) -o $@ -c $< $(CFLAGS) $(LINK_LIB)
 
 # Compile les fichiers sources en mode release
 $(OBJ_DIR)/$(RELEASE_DIR)/%.o: $(SOURCE_DIR)/%.$(EXT)
-	$(CC) $(INCLUDE) -o $@ -c $< $(CFLAGS) $(LINK_LIB)
+	$(CC) $(INCLUDE) $(RELEASE_CONFIG_INCLUDE) -o $@ -c $< $(CFLAGS) $(LINK_LIB)
 
 # Compile les fichiers sources de tests
 $(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_SRC_DIR)/%.$(EXT)
-	$(CC) $(INCLUDE) $(TEST_INCLUDE) -o $@ -c $< $(CFLAGS) $(DEFUG_CFLAGS) $(LINK_LIB) $(TEST_LINK_LIB)
+	$(CC) $(INCLUDE) $(DEBUG_CONFIG_INCLUDE) $(TEST_INCLUDE) -o $@ -c $< $(CFLAGS) $(DEFUG_CFLAGS) $(LINK_LIB) $(TEST_LINK_LIB)
 
 # Lance la compilation en mode debug en changeant les flags de compilation
 debug: CFLAGS := $(CFLAGS) $(DEFUG_CFLAGS)

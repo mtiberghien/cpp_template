@@ -6,6 +6,7 @@
 #include <plog/Initializers/ConsoleInitializer.h>
 #include <plog/Formatters/TxtFormatter.h>
 #include <plog/Appenders/RollingFileAppender.h>
+#include "config.h"
 
 namespace plog
 {

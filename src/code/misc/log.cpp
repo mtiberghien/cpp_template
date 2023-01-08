@@ -4,7 +4,7 @@ enum plog::Severity filter_from_string(string filter)
 {
     if(filter.empty())
     {
-        return plog::info;
+        return (plog::Severity)LOG_DEFAULT_SEVERITY;
     }
     if(filter.compare("verbose") == 0)
     {
@@ -31,7 +31,7 @@ enum plog::Severity filter_from_string(string filter)
         return plog::fatal;
     }
 
-    return plog::info;
+    return (plog::Severity)LOG_DEFAULT_SEVERITY;
 }
 
 void init_logs(string filter)
