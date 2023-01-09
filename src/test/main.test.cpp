@@ -2,7 +2,7 @@
 
 UP_TEST(testRunnerSuccess)
 {
-    // Si ce teste marche, le framework de test est foctionnel
+    // Si ce teste marche, le framework de test est fonctionnel
     UP_ASSERT(true);
 }
 

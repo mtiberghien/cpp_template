@@ -36,5 +36,13 @@ enum plog::Severity filter_from_string(string filter)
 
 void init_logs(string filter)
 {
-    plog::init(filter_from_string(filter), &consoleAppender).addAppender(&fileAppender);
+    if(ADD_FILE_APPENDER == 1)
+    {
+        plog::init(filter_from_string(filter), &consoleAppender).addAppender(&fileAppender);
+    }
+    else
+    {
+        plog::init(filter_from_string(filter), &consoleAppender);
+    }
+    
 }

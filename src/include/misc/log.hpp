@@ -42,7 +42,7 @@ namespace plog
 }
 
 static plog::ColorConsoleAppender<plog::MyFuncMessageFormatter> consoleAppender;
-static plog::RollingFileAppender<plog::TxtFormatter> fileAppender("app.log", 1024*1024*5, 1);
+static plog::RollingFileAppender<plog::TxtFormatter> fileAppender("app.log", 1024*1024*1, 5);
 using namespace std;
 extern void init_logs(string filter);
 
