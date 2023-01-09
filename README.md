@@ -143,6 +143,10 @@ Si on lance l'application avec la commande `./build/test/app info` par exemple s
 
 J'ai mis en place un mécanisme (décrit plus bas) qui fait que l'application compilée en debug se lance par défaut avec le filtre debug, alors que l'application compilée en release se lance par défaut avec le filtre info. Cette astuce permet de ne pas se soucier d'effacer le code de debug, puisqu'il sera masqué par défaut par l'application. Par contre si quelque chose se passe mal on peut toujours forcer l'affichage des messages de debug pour comprendre ce qu'il se passe.
 
+### Instructions pour utiliser l'extension Make Tools
+
+![Interface de configuration de Make Tools](./doc/images/interface-makeTools.png)
+
 ## Configuration en fonction du type de build
 
 Il est très courant (je dirais même que ça arrive tout le temps) que l'on souhaite des comportements différents pour une application lorsque est elle en compilée en développement (debug) et en production (release). On peut utiliser des directives préprocesseurs, avant de compiler, mais on risque d'oublier et on souhaite un traitement automatique.
