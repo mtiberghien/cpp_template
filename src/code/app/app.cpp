@@ -4,8 +4,8 @@ bool app::init(int argc, char* argv[])
 {
     try
     {
-        PLOGI << "Initialisation du programme";
         init_logs(argc >1 ? string(argv[1]): string(""));
+        PLOGI << "Initialisation du programme";
         return true;
     }
     catch(const std::exception& e)
