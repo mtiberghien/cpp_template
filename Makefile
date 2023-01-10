@@ -1,5 +1,9 @@
 # Si la structure des modules change dans le projet changer MODULES en conséquence
 MODULES 	:= app io misc model
+# Permet d'inclure des librairie au linker ex -lsqlite3
+LINK_LIB	:=
+# Permet d'inclure des librairie au linker pour les tests ex -lsqlite3
+TEST_LINK_LIB:=
 # Compilateur Système
 CC			:= g++
 # Extension à compiler
@@ -10,10 +14,6 @@ EXEC		:= app
 CFLAGS		:= -Wall
 # Options de compilation pour le Debug
 DEBUG_CFLAGS := -g
-# Permet d'inclure des librairie au linker ex -lsqlite3
-LINK_LIB	:=
-# Permet d'inclure des librairie au linker pour les tests ex -lsqlite3
-TEST_LINK_LIB:=
 # Dossier racine des headers
 INCLUDE_DIR := src/include
 # Dossier racine des headers de tests
