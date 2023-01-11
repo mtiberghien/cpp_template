@@ -4,8 +4,12 @@ MODULES 	:= app io misc model
 LINK_LIB	:=
 # Permet d'inclure des librairie au linker pour les tests ex -lsqlite3
 TEST_LINK_LIB:=
-# Compilateur Système
-CC			:= g++
+ifeq ($(CROSS_COMPILE),1)
+# remplacer le compilateur utilisé pour la cross-compilation ici
+	CC	:= echo undefined cross_compil: 
+else 
+	CC	:= g++
+endif
 # Extension à compiler
 EXT			:= cpp
 # Nom de l'exécutable
