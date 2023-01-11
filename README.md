@@ -72,12 +72,41 @@ Il existe différentes façon de configure VS Code pour compiler son code, mais 
 Le bouton Make Tools apparaît en blanc sur la capture d'écran ci-dessous. Son interface minimaliste permet de sélectionner les différentes cibles du makefile, de compiler, débuger ou lancer une application.
 
 La partie qui m'a demandé la plus de temps a été la création du Makefile (je ne connaissais vraiment pas bien).
-Je l'ai commenté au maximum, mais si vous avez envie d'y toucher un minimum il ne faut se concentrer que sur la première ligne:
+Je l'ai commenté au maximum, mais si vous avez envie d'y toucher un minimum il faut vous concentre sur les points suivants:
 
+### Configuration des modules
 ```
 # Si la structure des modules change dans le projet changer MODULES en conséquence
 MODULES 	:= app io misc model
 ```
+
+### Configuration des links
+
+Si vous avez besoin d'ajouter des librairies de link (comme -sqlite3) il y a deux variables à renseigner: une pour l'application et une pour le projet de test
+
+```
+# Permet d'inclure des librairie au linker ex -lsqlite3
+LINK_LIB	:=
+# Permet d'inclure des librairie au linker pour les tests ex -lsqlite3
+TEST_LINK_LIB:=
+```
+
+### Configuration de la Cross Compilation
+
+Si vous utiliser la cross-compilation vous pouvez renseigner votre compilateur spécifique ici:
+```
+ifeq ($(CROSS_COMPILE),1)
+# remplacer le compilateur utilisé pour la cross-compilation ici
+	CC	:= echo undefined cross_compil: 
+else 
+	CC	:= g++
+endif
+```
+
+Notez que par défaut, si l'argument CROSS_COMPILE=1 est passé à la commande make, le make file affichera que le compilateur n'est pas définit et ne compilera rien
+
+
+
 
 Si vous changez le nom de vos modules, il faut changer cette ligne en fonction: il est important également d'avoir des noms semblables pour les includes et les tests, car cette variable permet de générer différents les includes et la génération de fichiers .o par module et par type de compilation.
 
