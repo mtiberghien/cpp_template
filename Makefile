@@ -7,7 +7,7 @@ TEST_LINK_LIB:=
 ifeq ($(CROSS_COMPILE),1)
 # remplacer le compilateur utilisé pour la cross-compilation ici
 	CC	:= echo undefined cross_compil: 
-# Nom de l'exécutable en cross-compil
+# Nom de l'exécutable cross-compile
 	EXEC		:= app-cross
 else 
 	CC	:= g++
